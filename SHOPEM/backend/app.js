@@ -60,8 +60,8 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:3000/Success',
-    cancel_url: 'http://localhost:3000/Cancel',
+    success_url: 'https://shopem-7029.onrender.com/Success',
+    cancel_url: 'https://shopem-7029.onrender.com/Cancel',
   });
 
   res.redirect(303, session.url) 
