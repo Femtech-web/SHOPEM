@@ -64,8 +64,7 @@ app.post('/create-checkout-session', async (req, res) => {
     cancel_url: 'https://shopem-7029.onrender.com/Cancel',
   });
 
-  res.redirect(303, session.url) 
-  console.log(session);
+  res.redirect(303, session.url);
 });
 
 app.listen(process.env.PORT || 5000, () => {
