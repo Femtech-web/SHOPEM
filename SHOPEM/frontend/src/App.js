@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-    <Router>
+    <Router basename='/'>
       <Routes>
         <Route exact path="/" element={<Home />}/>
         <Route exact path="/Register" element={<Register />}/>
