@@ -1,14 +1,5 @@
-.payment-btn{
-    padding: 10px 15px;
-    background: coral;
-    color: white;
-    margin-top: 50px;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    width: 100px;
-}
-
-.payment-btn:hover{
-    background: black;
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

@@ -28,8 +28,8 @@ function App() {
         <Route exact path="/product/:id" element={<Product />}/>
         <Route exact path="/cart" element={<Cart />}/>
         <Route exact path="/ContactPayment" element={<ContactPayment />}/>
-        <Route exact path="/Success" element={<Success />}/>
-        <Route exact path="/Cancel" element={<Cancel />}/>
+        <Route  path="/Success" element={<Success />}/>
+        <Route  path="/Cancel" element={<Cancel />}/>
       </Routes>
     </Router>
     </>

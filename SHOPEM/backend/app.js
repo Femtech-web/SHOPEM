@@ -65,6 +65,7 @@ app.post('/create-checkout-session', async (req, res) => {
   });
 
   res.redirect(303, session.url) 
+  console.log(session);
 });
 
 app.listen(process.env.PORT || 5000, () => {

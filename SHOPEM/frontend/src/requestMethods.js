@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "https://shopem.onrender.com/api";
 let parsedToken ;
 if(localStorage.getItem("TOKEN")){
-     parsedToken = JSON.parse(localStorage.getItem("TOKEN"));
+     parsedToken = localStorage.getItem("TOKEN");
 }
 
 
