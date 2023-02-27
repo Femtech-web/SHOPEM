@@ -9,7 +9,7 @@ import "@fontsource/roboto";
 const Container = styled.div`
    padding: 0 10%;
    font-family: "roboto";
-   ${mobile2({padding: "0"})};
+   ${mobile2({padding: "0 1% 0 2%"})};
 `;
 
 const headingStyles = {
