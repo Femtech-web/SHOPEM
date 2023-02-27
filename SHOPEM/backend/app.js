@@ -43,7 +43,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-console.log(process.env.MONGO_URL)
+
 app.post('/create-checkout-session', async (req, res) => {
   const {total} = req.body;
   const session = await stripe.checkout.sessions.create({
