@@ -89,7 +89,7 @@ const buttonStyles = (match) => {
 const Product = ({item}) => {
   const theme = useTheme();
   const matchSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const userId = useSelector(state => state.user.currentUser?._id);
+  const userId = localStorage.getItem("userId");;
   const [cartMessage, setCartMessage] = useState(false);
   const quantity = 1;
   const productId = item._id;

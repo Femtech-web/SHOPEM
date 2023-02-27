@@ -106,7 +106,7 @@ const alertStyles = {
 const Product = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const userId = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser._id;
+  const userId = localStorage.getItem("userId");
   const productId = location.pathname.split("/")[2];
   const [product, setProduct] = useState(null);
   const [cartMessage, setCartMessage] = useState(false);
