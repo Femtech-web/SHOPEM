@@ -61,27 +61,22 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://shopem.onrender.com/success?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: `https://shopem.onrender.com/checkout/cancel`,
+    success_url: '/success',
+    cancel_url: `/cancel`,
   });
 
   res.redirect(303, session.url);
 });
 
 app.get('/success', async (req, res) => {
-    const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
-    const customer = await stripe.customer.retrieve(session.customer);
-
-    if(req.query.session_id){
       res.sendFile(path.resolve(__dirname, 'success.html'));
-    }
 });
 
 app.post('/success', async (req, res) => {
   res.redirect('https://shopem-7029.onrender.com/index.html');
 });
 
-app.get('/checkout/cancel', async (req, res) => {
+app.get('/cancel', async (req, res) => {
 
  res.sendFile(path.resolve(__dirname, 'cancel.html'));
 });
