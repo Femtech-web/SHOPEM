@@ -9,10 +9,10 @@ const Container = styled.div`
     position: relative;
     width: 100%;
     height: 5vh;
-    margin: ${props => props.cart ? "2% 0 ": "4% 0"};
+    margin: ${props => props.cart ? "2% 0": "4% 0"};
     padding: 1% 0;
     @media screen and (max-width: 600px){
-        marginTop: ${props => props.cart ? "5%" : "10vh"}
+        margin-top: ${props => props.cart ? "5%" : "17%"}
     }
 `;
 

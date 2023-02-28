@@ -47,7 +47,14 @@ const FilterContainer = styled.div`
 const formStyles = (match) => {
     return {m: 1, 
     ...!match ? {minWidth: "150px"} 
-    : {minWidth: "100px"}}
+    : {minWidth: "100px"}
+    }
+};
+
+const headStyles = (match) => {
+    return {m: 1, 
+    ...!match ? {fontSize: "1.5rem"} 
+    : {fontSize: "1rem"}}
 };
 
 const ProductList = () => {
@@ -71,6 +78,7 @@ const ProductList = () => {
         <FilterItems>
             <Typography variant="h6" 
             component="h2" mb={1}
+            sx={headStyles(matchSM)}
             >Filter Products:</Typography>
             <FilterTop>
                 <FormControl sx={formStyles(matchSM)} 
@@ -112,6 +120,7 @@ const ProductList = () => {
         <SortItems>
             <Typography variant="h6" 
             component="h2" mb={1}
+            sx={headStyles(matchSM)}
             >Sort Products:</Typography>
             <FormControl sx={formStyles(matchSM)} 
                 size="small">

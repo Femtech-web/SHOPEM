@@ -25,7 +25,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     color: #F2F2F2;
-    ${mobile2({zIndex: "90"})};
+    ${mobile2({zIndex: "90", width: "100%"})};
 `;
 
 const TopContainer = styled.div`
