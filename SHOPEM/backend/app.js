@@ -61,7 +61,7 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:5000/success',
+    success_url: 'https://shopem.onrender.com/success',
     cancel_url: 'http://localhost:5000/cancel',
   });
 
@@ -69,7 +69,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 app.get('/success',  (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'success.html'));
+      res.sendFile(path.join(__dirname, '/success.html'));
 });
 
 app.post('/success',  (req, res) => {
