@@ -68,20 +68,20 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.get('/success', async (req, res) => {
+app.get('/success',  (req, res) => {
       res.sendFile(path.resolve(__dirname, 'success.html'));
 });
 
-app.post('/success', async (req, res) => {
+app.post('/success',  (req, res) => {
   res.redirect('https://shopem-7029.onrender.com/index.html');
 });
 
-app.get('/cancel', async (req, res) => {
+app.get('/cancel',  (req, res) => {
 
  res.sendFile(path.resolve(__dirname, 'cancel.html'));
 });
 
-app.post('/failure', async (req, res) => {
+app.post('/failure',  (req, res) => {
   res.redirect('https://shopem-7029.onrender.com/index.html');
 });
 
