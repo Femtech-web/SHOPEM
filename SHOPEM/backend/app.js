@@ -61,8 +61,8 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://shopem.onrender.com/success',
-    cancel_url: 'http://localhost:5000/cancel',
+    success_url: 'https://shopem-7029.onrender.com/success',
+    cancel_url: 'https://shopem-7029.onrender.com/cancel',
   });
 
   res.redirect(303, session.url);
@@ -73,7 +73,7 @@ app.get('/success',  (req, res) => {
 });
 
 app.post('/success',  (req, res) => {
-  res.redirect('https://shopem-7029.onrender.com/index.html');
+  res.redirect('https://shopem-7029.onrender.com');
 });
 
 app.get('/cancel',  (req, res) => {
@@ -82,7 +82,7 @@ app.get('/cancel',  (req, res) => {
 });
 
 app.post('/failure',  (req, res) => {
-  res.redirect('https://shopem-7029.onrender.com/index.html');
+  res.redirect('https://shopem-7029.onrender.com');
 });
 
 
