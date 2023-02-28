@@ -61,8 +61,8 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://shopem-7029.onrender.com/success',
-    cancel_url: 'https://shopem-7029.onrender.com/cancel',
+    success_url: 'https://shopem-7029.onrender.com/success.html',
+    cancel_url: 'https://shopem-7029.onrender.com/cancel.html',
   });
 
   res.redirect(303, session.url);
