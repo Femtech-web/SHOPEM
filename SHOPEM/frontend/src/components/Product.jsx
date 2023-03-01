@@ -5,7 +5,7 @@ import { Alert } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { addProduct } from '../redux/cartRedux';
 import { userRequest } from '../requestMethods';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useMediaQuery  from "@mui/material/useMediaQuery";
 import { ShoppingCartOutlined, 
   FavoriteBorderRounded } from "@mui/icons-material";
@@ -27,7 +27,7 @@ const Menu = styled.div`
   color: black;
   width: 30px;
   height: 30px;
-  background: lavender;
+  background: #E5F0F8;
   border-radius: 50%;
   padding: 5px;
   display: flex;

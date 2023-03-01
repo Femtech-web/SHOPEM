@@ -24,7 +24,7 @@ const InnerTopShowcase = styled.div`
 
 const TopDesc = styled.div`
     width: 50%;
-    background: lavender;
+    background: #E5F0F8;
     ${mobile({width: "100%"})};
 `
 const H3 = styled.h3`

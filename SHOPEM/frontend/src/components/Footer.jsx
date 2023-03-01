@@ -75,7 +75,7 @@ const Footer = () => {
         <TopContainer>
             <Grid container sx={{
                 padding: "3% 4%",
-                background: "lavender",
+                background: "#E5F0F8",
                 }}>
                 <Grid lg={6} xs={12}>
                     <Img src="/image/many.jpg" alt="" />
