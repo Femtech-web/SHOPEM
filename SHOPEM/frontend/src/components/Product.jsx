@@ -102,15 +102,22 @@ const Product = ({item}) => {
       try {
           const res = await userRequest.post(`/carts/${userId}`, {productId, quantity});
         if(res){
-          setCartMessage(true);
-
-          setTimeout(() => {
-            setCartMessage(false);
-          }, 2000);
+          return;
         } 
       } catch (err) {}
     }
+
+    const message = () => {
+      setCartMessage(true)
+  
+      setTimeout(() => {
+        setCartMessage(false);
+      }, 2000);
+  
+    }
+
     sendToCart();
+    message();
  };
 
   return (

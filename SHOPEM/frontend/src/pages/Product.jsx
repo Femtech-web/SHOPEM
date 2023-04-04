@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
+import Spinner from "../elements/Spinner/Spinner";
 import Navbar from '../components/Navbar';
 import Advert from '../components/Advert';
 import Footer from '../components/Footer';
@@ -121,6 +123,11 @@ const Product = () => {
         setProduct(res.data);
       } catch (err){}
     }
+    
+    scroll.scrollToTop({
+      smooth: true
+    })
+
     getProduct();
   }, [productId]);
 
@@ -139,19 +146,28 @@ const Product = () => {
       try {
           const res = await userRequest.post(`/carts/${userId}`, {productId, quantity, choosedSize});
         if(res){
-          setCartMessage(true);
-
-          setTimeout(() => {
-            setCartMessage(false);
-          }, 5000);
+            return;
         } 
       } catch (err) {}
     }
+
+    const message = () => {
+      setCartMessage(true)
+  
+      setTimeout(() => {
+        setCartMessage(false);
+      }, 5000);
+    }
+
+    message()
     sendToCart();
  };
 
-  return (
-    <>
+ let app = <Spinner />
+ 
+  if(product){
+    app = (
+      <>
       <Navbar search={true} />
       <Advert />
       <ProductContainer>
@@ -198,6 +214,8 @@ const Product = () => {
       <Footer />
     </>
   )
+}
+return <>{app}</>
 }
 
 export default Product

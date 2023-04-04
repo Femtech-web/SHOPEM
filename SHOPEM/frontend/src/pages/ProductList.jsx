@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import { animateScroll as scroll } from "react-scroll";
 import styled from "styled-components";
 import Navbar from '../components/Navbar';
 import Products from '../components/Products';
@@ -67,9 +68,15 @@ const ProductList = () => {
         setFilter(prev => ({...prev,[e.target.name]: value}))
     };
 
-    console.log(filter);
     const location = useLocation();
     const cat = location.pathname.split("/")[2];
+
+    useEffect(() => {
+        scroll.scrollToTop({
+          smooth: true
+        })
+    })
+
   return (
     <>
          <Navbar />

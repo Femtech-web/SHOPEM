@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { animateScroll as scroll } from 'react-scroll';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery  from "@mui/material/useMediaQuery";
 import { useSelector, useDispatch } from "react-redux";
@@ -188,6 +189,13 @@ const Cart = () => {
     dispatch(deleteProduct(product));
     setCartProducts(fetchedProducts); 
  }
+
+    useEffect(() => {
+        scroll.scrollToTop({
+          smooth: true
+        })
+    })
+ 
 
   return (
     <>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from "./Product";
 import { Typography, Grid } from '@mui/material';
 import styled from "styled-components";
+import Spinner from "../elements/Spinner/Spinner";
 import { publicRequest } from '../requestMethods';
 import { mobile2 } from "../responsive";
 import "@fontsource/roboto";
@@ -55,9 +56,13 @@ const Products = ({cat, filter, sort}) => {
         ((a,b) => b.createdAt - a.createdAt))
     }
   }, [sort]);
+
+  let app = <Spinner />
   
-  return (
-    <Container>
+  if(products){
+    app = (
+      <>
+      <Container>
       <Typography component="h3"
         sx={headingStyles}>
             {cat ? cat : "New Collections"}
@@ -80,7 +85,11 @@ const Products = ({cat, filter, sort}) => {
         })}
       </Grid>
     </Container>
+    </>
   )
+}
+
+return <>{app}</>
 }
 
 
