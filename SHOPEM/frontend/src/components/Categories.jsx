@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { Typography } from '@mui/material';
+import { Typography, Skeleton } from '@mui/material';
 import { Link } from "react-router-dom";
 import {mobile2} from "../responsive";
 import "@fontsource/roboto/700.css";
@@ -105,12 +105,12 @@ const Categories = () => {
           <Overlay></Overlay>
         </Container>
         <Container>
-          <Img src="/image/woman3.jpg" alt="" />
-          <Text>
-            <H2>UNISEX</H2>
-            <Link to={'/products/unisex'}><Button>Shop Now</Button></Link>
-          </Text>
-          <Overlay></Overlay>
+        {<Img src="/image/woman3.jpg" alt="" /> || <Skeleton variant='rectangular' width={150} height={100} />}
+        <Text>
+        <H2>UNISEX</H2>
+        <Link to={'/products/unisex'}><Button>Shop Now</Button></Link>
+        </Text>
+        <Overlay></Overlay>
         </Container>
       </AllContainer>
     </CategoryWrapper>

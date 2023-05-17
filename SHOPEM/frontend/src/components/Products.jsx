@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from "./Product";
 import { Typography, Grid } from '@mui/material';
 import styled from "styled-components";
-import Spinner from "../elements/Spinner/Spinner";
+import SkeletonContainer from './SkeletonContainer';
 import { publicRequest } from '../requestMethods';
 import { mobile2 } from "../responsive";
 import "@fontsource/roboto";
@@ -22,14 +22,17 @@ const headingStyles = {
 
 const Products = ({cat, filter, sort}) => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
   const [filtererdProducts, setFiltererdProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
+          setIsLoading(true)
           const res = await publicRequest.get(cat ? `/products?category=${cat}` : "/products");
 
           setProducts(res.data);
+          setIsLoading(false);
       } catch (err) {}
     }
     getProducts();
@@ -57,12 +60,14 @@ const Products = ({cat, filter, sort}) => {
     }
   }, [sort]);
 
-  let app = <Spinner />
+  if(isLoading){
+    return <SkeletonContainer />
+  }
   
-  if(products){
-    app = (
-      <>
-      <Container>
+
+return (
+  <>
+    <Container>
       <Typography component="h3"
         sx={headingStyles}>
             {cat ? cat : "New Collections"}
@@ -85,11 +90,8 @@ const Products = ({cat, filter, sort}) => {
         })}
       </Grid>
     </Container>
-    </>
-  )
-}
-
-return <>{app}</>
+  </>
+)
 }
 
 
