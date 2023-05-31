@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import { Typography, Skeleton } from '@mui/material';
+import { Typography } from '@mui/material';
+import ImageLoader from './ImageLoader';
 import { Link } from "react-router-dom";
 import {mobile2} from "../responsive";
 import "@fontsource/roboto/700.css";
@@ -89,7 +90,7 @@ const Categories = () => {
         >Categories</Typography>
       <AllContainer>
         <Container>
-          <Img src="/image/man3.jpg" alt="" />
+          {<Img src="/image/man3.jpg" alt="" /> || <ImageLoader />}
           <Text>
             <H2>MEN</H2>
             <Link to={'/products/men'}><Button>Shop Now</Button></Link>
@@ -97,7 +98,7 @@ const Categories = () => {
           <Overlay></Overlay>
         </Container>
         <Container>
-          <Img src="/image/woman4.jpg" alt="" />
+          {<Img src="/image/woman4.jpg" alt="" /> || <ImageLoader />}
           <Text>
             <H2>WOMEN</H2>
             <Link to={'/products/women'}><Button>Shop Now</Button></Link>
@@ -105,7 +106,7 @@ const Categories = () => {
           <Overlay></Overlay>
         </Container>
         <Container>
-        {<Img src="/image/woman3.jpg" alt="" /> || <Skeleton variant='rectangular' width={150} height={100} />}
+        {<Img src="/image/woman3.jpg" alt="" /> || <ImageLoader />}
         <Text>
         <H2>UNISEX</H2>
         <Link to={'/products/unisex'}><Button>Shop Now</Button></Link>

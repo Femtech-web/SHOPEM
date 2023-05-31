@@ -8,7 +8,7 @@ import "@fontsource/roboto/700.css";
 
 const TopShowcase = styled.div`
     padding: 0% 10%;
-    margin-top: 3%;
+    margin-top: 0;
     font-family: "roboto";
     margin-bottom: 5%;
     ${mobile({padding: "1.5% 1%"})};
@@ -18,7 +18,6 @@ const InnerTopShowcase = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    transform: translateY(5%);
     ${mobile({flexDirection: "column"})};
 `;
 

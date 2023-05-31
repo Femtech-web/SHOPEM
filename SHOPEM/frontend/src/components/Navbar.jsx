@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
+
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { mobile2 } from "../responsive";
-import { Badge } from "@mui/material";
+import { Badge, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import { TextField, InputAdornment, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -11,10 +13,10 @@ import "@fontsource/roboto/900.css";
 import "@fontsource/roboto";
 import MenuBar from "./MenuBar";
 import { SearchOutlined,
-     ShoppingCartOutlined, 
-     PersonOutlineOutlined,
-     FavoriteBorderOutlined,
-     } from "@mui/icons-material";
+ShoppingCartOutlined, 
+PersonOutlineOutlined,
+FavoriteBorderOutlined,
+} from "@mui/icons-material";
 
 
 const Container = styled.div`
@@ -33,17 +35,7 @@ const TopContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1% 10% 4%;
-    margin-bottom: 2%;
     background: #1A1C1F;
-`;
-
-const ButtonContainer = styled.div`
-    position: absolute;
-    bottom: 0;
-    right: 10%;
-    transform: translateY(40px);
-    display: ${props => props.primary ? "none" : "block"};
-    ${mobile2({transform: "translateY(150%)", right: "1%"})};
 `;
 
 const MenuItem = styled.div`
@@ -72,6 +64,20 @@ const IconContainer = styled.div`
     align-items: center;
 `;
 
+const cartStyles = (matchSM) => {
+    return {
+        letterSpacing: "0.5rem", 
+        paddingTop: '2%', 
+        ...matchSM && {fontSize: "1rem"}
+    }
+};
+
+const logoStyles = {
+    letterSpacing: "0.1rem", 
+    fontWeight: "900", 
+    color: 'white'
+};
+
 const Navbar = ({search, cart}) => {
     const theme = useTheme();
     const matchSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -86,7 +92,9 @@ const Navbar = ({search, cart}) => {
     return (
         <Container>
             <TopContainer>
-                <h1 style={{letterSpacing: "0.1rem", fontWeight: "900"}}>SHOP<Span>EM</Span></h1>
+                <Link to='/' style={{textDecoration:'none'}}>
+                    <h1 style={logoStyles}>SHOP<Span>EM</Span></h1>
+                </Link>
                 <MenuBar handleClick={handleClick} navToggled={navToggled}/>
                 <IconContainer >
                 <Link to='/Login'>
@@ -120,21 +128,25 @@ const Navbar = ({search, cart}) => {
                     </Link>
                 </IconContainer>
             </TopContainer>
-            {!cart ? <ButtonContainer primary={search}>
-                <TextField id="outlined-basic"
-                 label="Search" 
-                 variant="outlined" size="small"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="end">
-                                <SearchOutlined />
-                            </InputAdornment>
-                        ),
-                    }}
-                 />
-            </ButtonContainer> : 
+            {!cart 
+            ? <Grid container sx={{padding: '4% 2%'}} justifyContent={matchSM ? 'center' : 'end'}>
+                <Grid item sm={3} xs={11}>
+                    <TextField id="outlined-basic"
+                        label="Search" 
+                        variant="outlined" size="small"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="end">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                ),
+                            }}
+                        fullWidth
+                    />
+                </Grid>
+            </Grid> :
             <Cart><Typography variant="h4" 
-            sx={{letterSpacing: "0.5rem",...matchSM && {fontSize: "1rem"}}}>
+            sx={cartStyles(matchSM)}>
            Shopping Cart({quantity})</Typography></Cart>}
         </Container>
     )

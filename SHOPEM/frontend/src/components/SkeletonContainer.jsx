@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const SkeletonSole = () => (
   <div>
-    <Skeleton variant='rectangular' sx={{ width: '95%'}} height={100} animation='wave' />
+    <Skeleton variant='rectangular' sx={{ width: '95%'}} height={150} animation='wave' />
     <Skeleton variant='text' sx={{ fontSize: '1rem', width: '50%'}}  animation='wave' />
     <Skeleton variant='text' sx={{ fontSize: '1rem', width: '88%'}}  animation='wave' />
 </div>

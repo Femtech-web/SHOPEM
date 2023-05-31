@@ -12,6 +12,8 @@ import Advert from '../components/Advert';
 import { Typography, Divider } from "@mui/material";
 import { Add, Remove, CloseSharp } from "@mui/icons-material";
 import styled from "styled-components";
+import CartLoader from '../components/CartLoader';
+import { SkeletonSole } from '../components/CartLoader';
 
 
 const Container = styled.div`
@@ -213,11 +215,11 @@ const Cart = () => {
             <Typography variant='h6'>Price</Typography>
         </TitleContainer>
         <ProductContainer>
-            {fetchedProducts.map((product) => {
+            {fetchedProducts ? fetchedProducts.map((product) => {
                 return  <>
                 <Divider />
                 <RowContainer>
-                    <Img src={product.img} alt="" />
+                    {<Img src={product.img} alt="" /> || <SkeletonSole /> }
                     <MenuItem><CloseSharp onClick={() =>  handleClick(product)}/></MenuItem>
                     <AmountContainer>
                     <IconContainer><Remove onClick={() => handleQuantity('dec', product)} /></IconContainer>
@@ -228,7 +230,7 @@ const Cart = () => {
                 </RowContainer>
                 <Divider />
             </>
-            }) }
+            }) :  <CartLoader />}
         </ProductContainer> </>}
      </Container>
      {fetchedProducts.length <= 0 ? <> <div></div></> : <><CheckoutContainer>
