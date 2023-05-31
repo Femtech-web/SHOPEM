@@ -86,7 +86,7 @@ const Navbar = ({search, cart}) => {
 
     const [navToggled, setNavToggled] = useState(false);
     const handleClick = (e) => {
-       setNavToggled(prev =>  !navToggled);
+       setNavToggled(prev =>  !prev);
     };
 
     return (
@@ -129,7 +129,7 @@ const Navbar = ({search, cart}) => {
                 </IconContainer>
             </TopContainer>
             {!cart 
-            ? <Grid container sx={{padding: '4% 2%'}} justifyContent={matchSM ? 'center' : 'end'}>
+            ? <Grid container sx={{padding: '3%'}} justifyContent={matchSM ? 'center' : 'end'}>
                 <Grid item sm={3} xs={11}>
                     <TextField id="outlined-basic"
                         label="Search" 
