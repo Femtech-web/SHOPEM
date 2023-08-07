@@ -4,142 +4,20 @@ import { animateScroll as scroll } from 'react-scroll';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery  from "@mui/material/useMediaQuery";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteProduct, updateProduct } from '../redux/cartRedux';
-import { mobile2 } from '../responsive';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Advert from '../components/Advert';
 import { Typography, Divider } from "@mui/material";
 import { Add, Remove, CloseSharp } from "@mui/icons-material";
-import styled from "styled-components";
-import CartLoader from '../components/CartLoader';
-import { SkeletonSole } from '../components/CartLoader';
 
+import { deleteProduct, updateProduct } from '../../redux/cartRedux';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import Advert from '../../components/Advert';
+import CartLoader from '../../components/CartLoader';
+import { SkeletonSole } from '../../components/CartLoader';
 
-const Container = styled.div`
-    margin-top: 5%;
-    font-family: "roboto";
-`;
+import { Container, TitleContainer, ProductContainer, RowContainer, Img, 
+IconContainer, AmountContainer, Amount, CheckoutContainer, CheckoutRow, 
+CheckoutBox, ButtonCart, ShippingButton, MenuItem, Nocart, headingStyles } from './style';
 
-const TitleContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5% 0 3%;
-    margin-bottom: 2%;
-    ${mobile2({padding: "3% 5% 3% 3%"})}
-`;
-
-const ProductContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 0 5% 0 3%;
-`;
-
-const RowContainer = styled.div`
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2% 0;
-`;
-
-const Img = styled.img`
-    width: 15%;
-    ${mobile2({width: "50%"})}
-`;
-
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  cursor: pointer;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-`;
-
-const IconContainer = styled.span`
-    padding: 5px 3px;
-    background: lavender;
-`;
-
-const CheckoutContainer = styled.div`
-    display: flex;
-    font-family: "roboto";
-    justify-content: space-between;
-    align-items: center;
-    padding: 2% 5%;
-    ${mobile2({flexDirection: "column"})}
-`;
-
-const CheckoutRow = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1% 0;
-`;
-
-const ButtonCart = styled.a`
-    padding: 10px 10px;
-    color: white;
-    background: #1A1C1F;
-    margin-top:   10px;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    &:hover {
-      background: coral;
-    };
-`;
-
-const ShippingButton = styled.a`
-    padding: 10px 10px;
-    color: black;
-    border: 1px solid rgba(0,0,0,0.5);
-    margin-top:   10px;
-    display: inline-block;
-    text-align: center;
-    &:hover {
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-    };
-    ${mobile2({marginBottom: "10%"})}
-`;
-
-const CheckoutBox = styled.div`
-    min-width: 250px;
-`;
-
-const MenuItem = styled.div`
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 20px;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 10px;
-`;
-
-const Nocart = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-`;
-
-const headingStyles = {
-    textAlign: "center",
-    marginBottom: "20px"
-};
 
 const Cart = () => {
   const theme = useTheme();
@@ -219,7 +97,7 @@ const Cart = () => {
                 return  <>
                 <Divider />
                 <RowContainer>
-                    {<Img src={product.img} alt="" /> || <SkeletonSole /> }
+                    {<Img src={product.img} alt={product.title} /> || <SkeletonSole /> }
                     <MenuItem><CloseSharp onClick={() =>  handleClick(product)}/></MenuItem>
                     <AmountContainer>
                     <IconContainer><Remove onClick={() => handleQuantity('dec', product)} /></IconContainer>

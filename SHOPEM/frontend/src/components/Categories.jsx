@@ -14,13 +14,15 @@ const CategoryWrapper = styled.div`
 
 const AllContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   ${mobile2({flexDirection: "column"})}
 `;
 
 const Container = styled.div`
   position: relative;
+  min-height: 200px;
+  flex: 1;
   &:hover {
         transform: scale(1.2);
     };
