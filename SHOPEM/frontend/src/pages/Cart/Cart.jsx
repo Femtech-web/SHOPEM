@@ -8,11 +8,11 @@ import { Typography, Divider } from "@mui/material";
 import { Add, Remove, CloseSharp } from "@mui/icons-material";
 
 import { deleteProduct, updateProduct } from '../../redux/cartRedux';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import Advert from '../../components/Advert';
-import CartLoader from '../../components/CartLoader';
-import { SkeletonSole } from '../../components/CartLoader';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import Advert from '../../components/Advert/Advert';
+import CartLoader from '../../components/CartLoader/CartLoader';
+import { SkeletonSole } from '../../components/CartLoader/CartLoader';
 
 import { Container, TitleContainer, ProductContainer, RowContainer, Img, 
 IconContainer, AmountContainer, Amount, CheckoutContainer, CheckoutRow, 

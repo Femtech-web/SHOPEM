@@ -4,11 +4,11 @@ import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 import { useSelector } from "react-redux";
 import Spinner from "./elements/Spinner/Spinner";
 import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
-import Product from "./pages/Product";
+import ProductList from "./pages/ProductList/ProductList";
+import Product from "./pages/Product/Product";
 import Cart from "./pages/Cart/Cart";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 import ContactPayment from "./pages/payment/ContactPayment";
 import Cancel from "./pages/payment/Cancel";
 import Success from "./pages/payment/Success";
@@ -23,7 +23,7 @@ function App() {
  }
 
  useEffect(() => {
-  setTimeout(Release, 10000)
+  setTimeout(Release, 4000)
  })
  
  let app = <Spinner />

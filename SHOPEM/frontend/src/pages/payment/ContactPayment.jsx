@@ -8,46 +8,8 @@ import { Typography,
 Box, 
 TextField, 
 FormControl} from "@mui/material";
-import styled from "styled-components";
+import { Container, TopContainer, Button } from './style';
 
-
-
-const TopContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 3% 5%;
-margin-bottom: 2%;
-color: white;
-width: 90%;
-font-family: "inter";
-overflow: hidden;
-background: #1A1C1F;
-`;
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "roboto";
-    padding-left: 5%;
-`;
-
-const Button = styled.button`
-    padding: 10px 15px;
-    background: coral;
-    color: white;
-    margin: 50px 0 10px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    width: 100px;
-    &:hover {
-      background: black;
-    }
-`;
 
 const ContactPayment = () => {
     const theme = useTheme();
@@ -89,7 +51,7 @@ const ContactPayment = () => {
         if(timer){
             clearTimeout(timer);
         };
-         timer = setTimeout(validate.bind(null, name), 4000);
+         timer = setTimeout(validate.apply(null, name), 4000);
          setTimeout(() => {setNameSuccess(false)}, 2000)
     };
 
@@ -99,7 +61,7 @@ const ContactPayment = () => {
         if(timer){
             clearTimeout(timer);
         };
-         timer = setTimeout(validate2.bind(null, name), 4000);
+         timer = setTimeout(validate2.apply(null, name), 4000);
     };
 
   return (

@@ -1,73 +1,10 @@
 import React from 'react';
-import styled from "styled-components";
-import { mobile2 } from '../responsive';
 import { Grid, Typography, TextField } from '@mui/material';
 import { FacebookRounded, Twitter, Instagram  } from '@mui/icons-material';
 import "@fontsource/roboto";
+import { Container, TopContainer, Img, Text, Span, MenuItem, Menu, 
+gridStyles, headingStyles, Button } from './style';
 
-
-const Container = styled.div`
-   font-family: "roboto";
-   position: relative;
-`;
-
-const TopContainer = styled.div`
-   padding: 10% 10% 5%;
-   ${mobile2({padding: "10% 1% 5%"})};
-`;
-
-const Img = styled.img`
-    width: 85%;
-`;
-
-const Text = styled.p`
-    position: absolute,
-    bottom: 0;
-    letter-spacing: 0.05rem
-`;
-
-const Span = styled.span`
-    color: coral;
-`
-
-const MenuItem = styled.div`
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 20px;
-  display: inline-block;
-  color: white;
-`;
-
-const Menu = styled(MenuItem)`
-    margin-left: 0;
-`;
-
-const gridStyles = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "start",
-    flexDirection: "column",
-    mt: 4
-};
-
-const headingStyles = {
-    fontWeight: 600,
-    fontSize: "1.3rem",
-    mb: 2
-};
-
-const Button = styled.a`
-    padding: 15px 25px;
-    background: coral;
-    color: white;
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-    width: 150px;
-    &:hover {
-      background: black;
-    }
-`;
 
 const Footer = () => {
   return (

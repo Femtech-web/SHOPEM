@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { login } from "../redux/apiCalls";
-import styled from "styled-components";
+import { login } from "../../redux/apiCalls";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery  from "@mui/material/useMediaQuery";
@@ -11,53 +10,9 @@ import { FormControl,
 Typography,    
 TextField, 
 Box } from '@mui/material';
+import { Container, Button, headingStyle, 
+labelStyle, iconStyle, textFieldStyle } from './style';
 
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-family: "roboto";
-  height: 100vh;
-  background: lavender;
-  padding: 0 10%;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  background: transparent;
-  color: black;
-  margin: 20px 0 10px;
-  display: inline-block;
-  border: 1px solid black;
-  cursor: pointer;
-  width: 100px;
-  text-align: center;
-  &:hover {
-    background: black;
-    color: white
-  }
-`;
-
-const headingStyle ={
-  letterSpacing: '0.2rem',
-  marginBottom: "15px"
-}
-const labelStyle ={
-  display: "flex", 
-  width: "50%", 
-  alignItems:"center",
-  textAlign: "left"
-};
-
-const iconStyle = {
-  marginRight: "5px",
-};
-
-const textFieldStyle = {
-  marginTop: "5px"
-};
 
 const Login = () => {
     const theme = useTheme();
